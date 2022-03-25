@@ -44,10 +44,28 @@ const myDeck = {
         this.drawnCards.push(card);
         return card;
     },
+    drawMultiple(numCards) {
+        const cards = [];
+        for(let i = 0; i < numCards; i++) {
+            cards.push(this.drawCard());
+        }
+        return cards;
+    }
+}
 
+function shuffle(arr) {
+    for(let i = arr.length-1; i>0;i--) {
+        let j = Math.floor(Math.random() * (i+1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+        console.log(arr);
+    }
 }
 
 console.log(myDeck.initializeDeck());
 console.log(myDeck.drawCard());
 console.log(myDeck.drawCard());
 console.log(myDeck.drawnCards);
+console.log(myDeck.drawMultiple(5));
+console.log(myDeck.drawnCards);
+
+shuffle(['A','B','C','D','E','F']);
